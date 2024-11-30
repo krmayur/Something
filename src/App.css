@@ -1,0 +1,191 @@
+.App {
+  text-align: center;
+  background-color: #ffcccb;
+  padding: 50px;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  color: #ff69b4;
+  font-size: 36px;
+  margin-bottom: 30px;
+  transition: color 0.3s ease-in-out;
+}
+
+h1:hover {
+  color: #ff1493;
+}
+
+.flower-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 400px;
+}
+
+.flower {
+  position: relative;
+  animation: grow 4s ease-in-out forwards;
+}
+
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: #ff69b4;
+  animation: pulsate 2s ease-in-out infinite;
+  opacity: 0;
+  animation: bloom 4s ease-in-out forwards, pulsate 2s ease-in-out infinite;
+}
+
+/* Heart-shaped petals */
+.petal.top {
+  top: -70px;
+  left: 0;
+  clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+  animation-delay: 0s;
+}
+
+.petal.right {
+  top: 0;
+  left: 70px;
+  clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+  animation-delay: 0.5s;
+}
+
+.petal.bottom {
+  top: 70px;
+  left: 0;
+  clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+  animation-delay: 1s;
+}
+
+.petal.left {
+  top: 0;
+  left: -70px;
+  clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+  animation-delay: 1.5s;
+}
+
+.petal.center {
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #ff1493;
+  clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+  animation-delay: 2s;
+}
+
+.stem {
+  width: 12px;
+  height: 150px;
+  background-color: #228b22;
+  margin-top: 30px;
+  border-radius: 8px;
+  animation: growStem 4s ease-in-out forwards;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bloom {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes growStem {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 200px;
+  }
+}
+
+/* Rainbow hover effect */
+.petal:hover {
+  transform: scale(1.2);
+  transition: transform 0.8s;
+}
+
+.petal.top:hover {
+  background-color: #ff0000;
+}
+
+.petal.right:hover {
+  background-color: #ff7f00;
+}
+
+.petal.bottom:hover {
+  background-color: #ffea00;
+}
+
+.petal.left:hover {
+  background-color: #00ff00;
+}
+
+.petal.center:hover {
+  background-color: #0000ff;
+}
+
+/* Message animation */
+.message {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 50px;
+  color: #ff1493;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.message:hover {
+  color: #ff6347;
+}
+
+/* Fade-in animation for the message */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Grass at the bottom */
+.flower-container:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #228b22;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
